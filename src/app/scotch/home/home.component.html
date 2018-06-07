@@ -1,0 +1,22 @@
+<header>
+  <nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a [routerLink]="['/home']" routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }" class="navbar-brand">
+         홈
+      </a>
+    </div>
+
+    <ul class="nav navbar-nav">
+      <li><a [routerLink]="['/home','calculator']" routerLinkActive="active">계산기</a></li>
+      <li><a [routerLink]="['/home','buttons']" routerLinkActive="active" >버튼</a></li>
+      <li><a [routerLink]="['/home','codepen']" routerLinkActive="active" >코드펜</a></li>
+      <li><a [routerLink]="['/home','stopwatch']" routerLinkActive="active" >스톱워치</a></li>
+      <li><a [routerLink]="['/home','accordion']" routerLinkActive="active" >아코디온</a></li>
+      <li><a [routerLink]="['/home','progress']" routerLinkActive="active" >진행바</a></li>
+    </ul>
+  </div>
+  </nav>
+</header>
+<router-outlet></router-outlet>

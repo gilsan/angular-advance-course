@@ -1,0 +1,5 @@
+<div class="jumbotron text-center" *ngIf="user">
+  <h1>{{ user.name }} ({{ user.username }})</h1>
+  <img [src]="user.avatar" class="img-responsive img-circle">
+</div>
+<button type="button" class="btn btn-primary" (click)="goback()">뒤로</button>

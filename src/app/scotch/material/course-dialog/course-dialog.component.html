@@ -1,0 +1,40 @@
+<h2 mat-dialog-title>{{description}}</h2>
+
+<mat-dialog-content [formGroup]="form">
+  <div>
+      <mat-form-field>
+          <input matInput placeholder="코스설명"
+            formControlName="description">
+        </mat-form-field>
+  </div>
+  <div>
+      <mat-form-field>
+          <mat-select placeholder="카테고리선택" formControlName="category">
+            <mat-option value="BEGINNER">초급</mat-option>
+            <mat-option value="INTERMEDIA">중급</mat-option>
+            <mat-option value="ADVANCED">고급</mat-option>
+          </mat-select>
+        </mat-form-field>
+  </div>
+  <div>
+      <mat-form-field color="primary">
+        <input matInput  [matDatepicker]="myDatepicker"
+         formControlName="releasedAt">
+        <mat-datepicker-toggle matSuffix
+           [for]="myDatepicker"></mat-datepicker-toggle>
+        <mat-datepicker #myDatepicker></mat-datepicker>
+      </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field>
+      <textarea matInput placeholder="설명"
+         formControlName="longDescription"></textarea>
+    </mat-form-field>
+  </div>
+
+
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button class="mat-raised-button" (click)="close()">종료</button>
+  <button class="mat-raised-button mat-primary" (click)="save()">저장</button>
+</mat-dialog-actions>

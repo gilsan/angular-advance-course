@@ -1,0 +1,64 @@
+
+<header class="1-header">
+  <ul class="top-menu disable-link-style">
+    <li class="log-small-container">
+      <a clas="v-center-block-parent">
+        <img class="v-ceenter-block logo-small angular-university-logo"
+        src="https://angular-academy.s3.amazonaws.com/main-logo/main-page-logo-small-hat.png"
+        data-pin-nopin="true">
+      </a>
+    </li>
+    <li>
+        <a>모달</a>
+    </li>
+  </ul>
+
+</header>
+<body>
+<div class="container">
+  <h1>모달 예제</h1>
+  <ng-template #authModalBody let-title="title"  >
+   <h5>{{title}}</h5>
+  <app-au-tab-panel id="tab-panel" #tabPanel>
+
+      <app-au-tab title="Login" #loginTab [selected]="loginTabActive">
+          <form>
+              <div class="form-field">
+                  <label>Email:</label><input class="login-email">
+              </div>
+              <div class="form-field">
+                  <label>Password:</label><input>
+              </div>
+          </form>
+      </app-au-tab>
+
+      <app-au-tab title="Sign Up" #signUpTab [selected]="!loginTabActive">
+          <form>
+              <div class="form-field">
+                  <label>Email:</label><input>
+              </div>
+              <div class="form-field">
+                  <label>Password:</label><input>
+              </div>
+              <div class="form-field">
+                  <label>Confirm Password:</label><input>
+              </div>
+          </form>
+      </app-au-tab>
+  </app-au-tab-panel>
+</ng-template>
+
+    <app-au-modal  clss="auth-modal" #modal [@fadeInOut]
+      [body]="authModalBody"
+      *appAuModalOpenOnClick="[loginButton,signUpButton]">
+      <i class="fa fa-times" (click)="modal.close()"></i>
+    </app-au-modal>
+
+<div class="modal-buttons">
+
+  <button #loginButton (click)="setLoginActive(true)">로그인</button>
+  <button #signUpButton (click)="setLoginActive(false)">등록</button>
+</div>
+
+</div>
+</body>

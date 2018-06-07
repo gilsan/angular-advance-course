@@ -1,0 +1,23 @@
+<header>
+    <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a routerLink="font" routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }" class="navbar-brand">
+          My Font Routing App
+        </a>
+      </div>
+
+      <ul class="nav navbar-nav">
+        <li><a [routerLink]="['font']" routerLinkActive="active">Font</a></li>
+        <li><a [routerLink]="['tabs']" routerLinkActive="active" >Tabs</a></li>
+        <li><a [routerLink]="['modal']" routerLinkActive="active" >Modal</a></li>
+        <li><a [routerLink]="['mask']" routerLinkActive="active" >InputMask</a></li>
+
+
+      </ul>
+    </div>
+    </nav>
+  </header>
+
+<router-outlet></router-outlet>

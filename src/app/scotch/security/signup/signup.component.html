@@ -1,0 +1,25 @@
+<div class="signup">
+  <form autocomplete="off" novalidate [formGroup]="form">
+    <fieldset>
+    <legend>등록</legend>
+    <div class="form-field">
+      <label>이메일:</label>
+      <input name="email" formControlName="email">
+    </div>
+    <div class="form-field">
+      <label>암호:</label>
+      <input name="password" formControlName="password" type="password">
+    </div>
+    <div class="form-field">
+      <label>확인:</label>
+      <input name="confirm" formControlName="confirm" type="password">
+    </div>
+  </fieldset>
+</form>
+<div class="form-buttons">
+    <button class="button button-primary" (click)="signUp()">등록</button>
+ </div>
+</div>
+
+
+
