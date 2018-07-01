@@ -1,8 +1,10 @@
 <mat-nav-list>
-  <a mat-list-item (click)="onClose()">
-    <mat-icon>face</mat-icon><span class="nav-caption" >운동</span></a>
-  <a mat-list-item (click)="onClose()" [routerLink]="['/security','signup']">
+  <a mat-list-item (click)="onClose()"  *ngIf="isLoggedIn$ | async"  [routerLink]="['/security','lessons']">
+    <mat-icon>face</mat-icon><span class="nav-caption" >강좌</span></a>
+  <a mat-list-item (click)="onClose()" *ngIf="isLoggedOut$ | async"  [routerLink]="['/security','signup']">
       <mat-icon>stars</mat-icon><span class="nav-caption">등록</span></a>
-  <a mat-list-item (click)="onClose()" [routerLink]="['/security','login']">
+  <a mat-list-item (click)="onClose()" *ngIf="isLoggedOut$ | async" [routerLink]="['/security','login']">
       <mat-icon>sentiment_very_satisfied</mat-icon><span class="nav-caption">로그인</span></a>
+      <a mat-list-item (click)="onLogout()"  *ngIf="isLoggedIn$ | async" >
+        <mat-icon>sentiment_very_satisfied</mat-icon><span class="nav-caption">로그아웃</span></a>
 </mat-nav-list>

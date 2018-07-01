@@ -1,0 +1,13 @@
+<form autocomplete="off" novalidate [formGroup]="form">
+  <fieldset>
+    <legend>사용자로 로긴</legend>
+    <div class="form-field">
+      <label>이메일</label>
+      <input name="userEmail" formControlName="userEmail">
+    </div>
+  </fieldset>
+
+  <div class="form-buttons">
+    <button class="button button-primary" (click)="loginAsUser()">사용자 로긴</button>
+  </div>
+</form>

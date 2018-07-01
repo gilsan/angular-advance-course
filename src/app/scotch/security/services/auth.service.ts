@@ -6,6 +6,7 @@ import { User } from '../model/user';
 import { BehaviorSubject } from 'rxjs';
 import { map, shareReplay, tap, filter } from 'rxjs/operators';
 
+
 export const ANONYMOUS_USER: User = {
    id: undefined,
    email: ''
@@ -31,7 +32,28 @@ export class AuthService {
       shareReplay(),
       tap(user => this.subject.next(user))
     );
+  }
 
+
+  login(email: string, password: string) {
+     return  this.http.post<User>('/api/login', { email,  password}).pipe(
+          shareReplay(),
+          tap(user => this.subject.next(user))
+       );
+  }
+
+  logout(): Observable<any> {
+      return this.http.post<any>('/api/logout', null).pipe(
+        shareReplay(),
+        tap(user => {  this.subject.next(ANONYMOUS_USER); }  )
+      );
+  }
+
+  loginAsUser(email: string) {
+      return this.http.post<User>('/api/admin', {email}).pipe(
+          shareReplay(),
+          tap( user => this.subject.next(user))
+      );
   }
 
 }

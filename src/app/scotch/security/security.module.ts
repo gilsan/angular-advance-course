@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HttpClientXsrfModule } from '@angular/common/http';
 
 import { MaterialModule } from '../../shared/material.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -15,6 +15,7 @@ import { HeaderComponent } from './navigation/header/header.component';
 import { SidebarComponent } from './navigation/sidebar/sidebar.component';
 import { LessonsService } from './services/lessons.service';
 import { AuthService } from './services/auth.service';
+import { AdminComponent } from './admin/admin.component';
 
 
 
@@ -25,13 +26,18 @@ import { AuthService } from './services/auth.service';
     ReactiveFormsModule,
     HttpClientModule,
     MaterialModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    HttpClientXsrfModule.withOptions({
+      cookieName: 'XSRF-TOKEN',
+      headerName: 'x-xsrf-token'
+    })
   ],
   declarations: [
     SecurityComponent,
     SignupComponent, LoginComponent,
     LessonsComponent, HeaderComponent,
-    SidebarComponent
+    SidebarComponent,
+    AdminComponent
   ],
   providers: [LessonsService, AuthService]
 })

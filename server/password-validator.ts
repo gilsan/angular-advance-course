@@ -11,7 +11,7 @@ schema
 
 export function validatePassword(password: string) {
    const  result = schema.validate(password, { list: true});
-   console.log('[' + password + '] Password validate: ', result );
+  // console.log('[' + password + '] Password validate: ', result );
    return result;
 }
 

@@ -12,6 +12,7 @@ import { InputRefDirective } from './font/lib/common/input-ref.directive';
 import { ModalModule } from './modal/modal.module';
 import { AuMaskComponent } from './au-mask/au-mask.component';
 import { AuMaskDirective } from './au-mask/au-mask.directive';
+import { TabsComponent } from './tabs/tabs.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { AuMaskDirective } from './au-mask/au-mask.directive';
      AuMdInputComponent,
      InputRefDirective,
      AuMaskDirective,
-     AuMaskComponent
+     AuMaskComponent,
+     TabsComponent
 
     ],
    imports: [

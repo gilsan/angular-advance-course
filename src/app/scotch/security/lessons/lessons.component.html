@@ -1,3 +1,14 @@
-<p>
-  lessons works!
-</p>
+ <div class="lessons-list-container v-h-center-block-partner" *ngIf="isLoggedIn$ | async">
+   <h2>전체 수업</h2>
+   <table class="table lessons-list card card-strong">
+     <tbody>
+      <tr *ngFor="let lesson of lessons$ | async" [routerLink]="['/security','lessons','lesson.id']">
+        <td class="lesson-title">{{lesson.description}}</td>
+        <td class="duration">
+          <i class="md-icon duration-icon">접속시간</i>
+          <span>{{lesson.duration}}</span>
+        </td>
+      </tr>
+     </tbody>
+   </table>
+ </div>

@@ -118,5 +118,8 @@
       }
     }
   },
-  "defaultProject": "au-input"
+  "defaultProject": "au-input",
+  "cli": {
+    "defaultCollection": "@ngrx/schematics"
+  }
 }

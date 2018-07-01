@@ -1,3 +1,12 @@
+<!--
+ echo "# angular-advance-course" >> README.md
+git init
+git add *
+git commit -m "first commit"
+git remote add origin https://github.com/gilsan/angular-advance-course.git
+git push -u origin master
+-->
+
 <header>
   <nav class="navbar navbar-inverse">
   <div class="container-fluid">
@@ -14,7 +23,8 @@
       <li><a routerLink="" routerLinkActive="active"
             [routerLinkActiveOptions]="{ exact: true }">Home</a></li>
       <li><a [routerLink]="['/about']" routerLinkActive="active" >About</a></li>
-      <li><a [routerLink]="['/material']" routerLinkActive="active" >Angular Material</a></li>
+      <li><a [routerLink]="['/material']" routerLinkActive="active" >Angular Material(RxJS)</a></li>
+      <li><a [routerLink]="['/ngrxstore']" routerLinkActive="active" >NgRx/Store</a></li>
       <li><a [routerLink]="['/security']" routerLinkActive="active" >보안</a></li>
     </ul>
     <ul class="nav nabvar-nav navbar-right">

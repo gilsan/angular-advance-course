@@ -8,12 +8,21 @@ import { createUser } from './create-user.route';
 import { getAllCourses, getCourseById } from './get-course.route';
 import { searchLessons } from './search-lessons.route';
 import { getUser } from './get-user.route';
+import { logOut } from './logout-route';
+import { login } from './login.route';
+import { retriveUserIdFromRequest } from './get-user.middleware';
+import { checkIfAuthenticated } from './auth.middleware';
+import { checkCsrfToken } from './csrf.middleware';
+import * as _ from 'lodash';
+import { checkIfAuthorized } from './authorization.middleware';
+import { loginAsUser } from './login-as-user.route';
 
 const bodyParser  = require('body-parser');
 const cookieParser = require('cookie-parser');
 const app: Application = express();
 
 app.use(cookieParser());
+app.use(retriveUserIdFromRequest);
 app.use(bodyParser.json());
 /*
 const commandLineArgs = require('command-line-args');
@@ -23,8 +32,19 @@ const optionDefinitions = [
 const options = commandLineArgs(optionDefinitions);
 */
 // REST API
-// app.route('/api/lessons').get(readAllLessons);
+ app.route('/api/lessons').get(
+   checkIfAuthenticated,
+    _.partial(checkIfAuthorized, ['STUDENT']),
+   readAllLessons);
+
+   app.route('/api/admin').post(
+    checkIfAuthenticated,
+    _.partial(checkIfAuthorized, ['ADMIN']),
+    loginAsUser);
+
  app.route('/api/signup').post(createUser);
+ app.route('/api/login').post(login);
+ app.route('/api/logout').post(checkIfAuthenticated, checkCsrfToken, logOut);
  app.route('/api/user').get(getUser);
 
 // if (!options.secure) {

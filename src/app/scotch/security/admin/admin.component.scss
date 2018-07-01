@@ -1,0 +1,29 @@
+form {
+  position: fixed;
+  top: 30%;
+  left: 40%;
+  margin-top: -50px;
+  margin-left: -100px;
+  margin: 0 auto;
+  border: 1px solid black;
+  height: 200px;
+  width: 300px;
+
+  legend {
+    text-align: center;
+    font-weight: bold;
+    color: blue;
+  }
+
+  input {
+    font-size: 15px;
+  }
+
+  button {
+     margin-top: 30px;
+     width: 100%;
+  }
+
+}
+
+

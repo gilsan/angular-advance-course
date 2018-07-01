@@ -7,12 +7,13 @@ import { StopwatchComponent } from './stopwatch/stopwatch.component';
 import { AcordionComponent } from './acordion/acordion.component';
 import { ProgressComponent } from './progress/progress.component';
 import { CodepenComponent } from './codepen/codepen.component';
+import { ChatComponent } from './chat/chat.component';
 
 const homeroutes: Routes = [
   { path: 'home',   component: HomeComponent,
     children: [
        { path: 'calculator', component: CalculatorComponent},
-       { path: 'buttons',    component: ButtonsComponent },
+       { path: 'chat',       component:   ChatComponent },
        { path: 'codepen',    component: CodepenComponent},
        { path: 'stopwatch',  component: StopwatchComponent },
        { path: 'accordion',   component: AcordionComponent },

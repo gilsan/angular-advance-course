@@ -7,9 +7,9 @@ const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'font', loadChildren: './components/components.module#ComponentsModule'},
   { path: 'about', loadChildren: './scotch/about/about.module#AboutModule'},
-  { path: 'material', loadChildren: './scotch/material/contact.module#ContactModule'  },
-  { path: 'security', loadChildren: './scotch/security/security.module#SecurityModule'  },
-  // { path: 'contact/:name', component: ContactComponent },
+  { path: 'material',  loadChildren: './scotch/material/contact.module#ContactModule'  },
+  { path: 'security',  loadChildren: './scotch/security/security.module#SecurityModule'  },
+  { path: 'ngrxstore', loadChildren: './scotch/ngrx/ngrx.module#NgrxModule' },
   { path: '**', component: NotFoundComponent },
 
 ];
